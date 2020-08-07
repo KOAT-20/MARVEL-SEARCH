@@ -1,0 +1,21 @@
+.custom_card {
+  /* background-image: url('https://mdbootstrap.com/img/new/slides/041.jpg'); */
+  background: transparent linear-gradient(26deg, #00000000 0%, #00000080 100%) 0% 0% no-repeat padding-box;
+  opacity: 1;
+  height: 300px;
+  cursor: pointer;
+}
+
+.custom_header {
+  float: right !important;
+}
+
+.custom_footer {
+  text-align: left;
+  font: Bold 19px/23px SF UI Text;
+  letter-spacing: -0.25px;
+  color: black;
+  opacity: 1;
+  position: absolute;
+  bottom: 20px;
+}
