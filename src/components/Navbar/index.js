@@ -3,6 +3,20 @@ import React, { Component } from 'react';
 import logo from '../../images/logo.PNG';
 
 export default class Navbar extends Component {
+  constructor (props) {
+    super (props);
+    this.state = {
+      search: ''
+    }
+  }
+
+  onSearch = e => {
+    this.setState({ search: e.target.value });
+    this.props.onSearchHeroeChange(e);
+    console.log(this.state.search);
+  };
+
+
   render () {
     return (
       <nav className='navbar navbar-expand-lg navbar-light bg-light'>
@@ -32,14 +46,11 @@ export default class Navbar extends Component {
                 placeholder='Search character...'
                 aria-label='Search'
                 aria-describedby="basic-addon1"
-                onChange={this.props.onSearch}
-                value={this.props.search}
+                onChange={this.onSearch}
+                value={this.state.search}
               />
             </div>
           </div>
-          {/* <div className='float-right mr-5'>
-            <i className='far fa-star'></i>
-          </div> */}
         </div>
       </nav>
     );
