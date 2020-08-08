@@ -13,7 +13,7 @@ export default class Navbar extends Component {
   onSearch = e => {
     this.setState({ search: e.target.value });
     this.props.onSearchHeroeChange(e);
-    console.log(this.state.search);
+    // console.log(this.state.search);
   };
 
 

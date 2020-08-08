@@ -1,7 +1,6 @@
 import React from 'react';
 
  const ItemsList = ({heroe}) => {
-   const imageUrl = heroe.thumbnail;
    return (
      <div className='col-lg-3 col-md-4 col-sm-12 mt-4'>
        <div className='card custom_card' style={{backgroundImage: `url(${heroe.thumbnail.path}.${heroe.thumbnail.extension})`}}>
