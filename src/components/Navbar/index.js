@@ -32,6 +32,8 @@ export default class Navbar extends Component {
                 placeholder='Search character...'
                 aria-label='Search'
                 aria-describedby="basic-addon1"
+                onChange={this.props.onSearch}
+                value={this.props.search}
               />
             </div>
           </div>
