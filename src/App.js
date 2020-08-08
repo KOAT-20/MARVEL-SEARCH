@@ -5,9 +5,14 @@ import logo from './images/logo.PNG';
 import './card.css';
 
 export default class App extends Component {
-  state = {
-    search: '',
-    characters: []
+  constructor (props) {
+    super(props);
+    this.state = {
+      loading: true,
+      error: null,
+      characters: undefined,
+      search: ''
+    }
   }
 
   async componentDidMount () {
@@ -15,31 +20,30 @@ export default class App extends Component {
   }
 
   getCharactersMavel = async () => {
-    const res = await axios.get('https://gateway.marvel.com:443/v1/public/characters?apikey=1038b8d6ec7dbf27ec813944c8023739');
-    console.log(res.data.data.results);
-    this.setState({
-      characters: res.data.data.results,
-    });
+    this.setState({ loading: true, error: null });
+    try {
+      const data = await axios.get('https://gateway.marvel.com:443/v1/public/characters?apikey=1038b8d6ec7dbf27ec813944c8023739');
+      console.log(data.data.data.results);
+      this.setState({ loading: false, characters: data.data.data.results });
+    } catch (error) {
+      this.setState({ loading: false, error: error });
+    }
   }
 
-  filterCharacters = () => {
-    const res = 'https://gateway.marvel.com:443/v1/public/characters?apikey=1038b8d6ec7dbf27ec813944c8023739'.filter(item => {
-      if (item.res.data.data.results.name.toLowerCase().includes(this.state.search)) {
-        return item;
-      }
-    });
-    this.setState({
-      characters: res.data.data.results,
-    });
-  }
 
-  onChange = e => {
+  onSearch = e => {
     this.setState({ search: e.target.value });
     console.log(this.state.search);
-    this.filterCharacters();
   };
 
   render () {
+    if (this.state.loading === true && !this.state.data) {
+    return (<div>cargando pagina...</div>)
+    }
+    if (this.state.error) {
+      return (<div>cargando...</div>)
+    }
+
     return (
       <div>
         <nav className='navbar navbar-expand-lg navbar-light bg-light'>
@@ -69,8 +73,8 @@ export default class App extends Component {
                   placeholder='Search character...'
                   aria-label='Search'
                   aria-describedby="basic-addon1"
-                  onChange={this.props.onSearch}
-                  value={this.props.search}
+                  onChange={this.onSearch}
+                  value={this.state.search}
                 />
               </div>
             </div>
@@ -81,7 +85,7 @@ export default class App extends Component {
         </nav>
 
         <div className='container mt-5 mb-5'>
-          <div className='row'>
+          {/* <div className='row'>
             {this.state.characters.map(character =>
               <div className='col-lg-3 col-md-4 col-sm-12 mt-4' key={character.id}>
                 <div className='card custom_card' style={{backgroundImage: `url(${character.thumbnail.path}.${character.thumbnail.extension})`}}>
@@ -94,7 +98,7 @@ export default class App extends Component {
                 </div>
               </div>
             )}
-          </div>
+          </div> */}
           <Switch>
             {/* <Route path='/' component={DetailsCharacter} /> */}
           </Switch>
