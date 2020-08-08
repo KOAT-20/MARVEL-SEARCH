@@ -20,20 +20,25 @@ export default class Navbar extends Component {
               <span className='navbar-toggler-icon'></span>
             </button>
           <div className='collapse navbar-collapse' id='navbarSupportedContent'>
-            <i className='fas fa-search'></i>
-            <form className='ml-2 w-50'>
+
+            <div className='input-group ml-2 w-50'>
+              <span className='input-group-text' id='basic-addon1'>
+                <i className='fas fa-search'></i>
+              </span>
+
               <input
                 type='search'
                 className='form-control'
                 placeholder='Search character...'
                 aria-label='Search'
+                aria-describedby="basic-addon1"
               />
-            </form>
+            </div>
           </div>
-          <div className='float-right mr-5'>
+          {/* <div className='float-right mr-5'>
             <i className='far fa-star'></i>
-          </div>
-          </div>
+          </div> */}
+        </div>
       </nav>
     );
   }
