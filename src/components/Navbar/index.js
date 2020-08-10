@@ -20,22 +20,22 @@ export default function Navbar (props) {
           </button>
         <div className='collapse navbar-collapse' id='navbarSupportedContent'>
 
-          <div className='input-group ml-2 w-50'>
-            <span className='input-group-text' id='basic-addon1'>
-              <i className='fas fa-search'></i>
-            </span>
-            <form className='form' onSubmit={props.onSearchHeroe}>
-              <input
-                type='search'
-                className='form-control'
-                placeholder='Search character...'
-                aria-label='Search'
-                aria-describedby="basic-addon1"
-                onChange={props.onHandlerChange}
-                value={props.query}
-              />
-            </form>
-          </div>
+          <form className='form w-75' onSubmit={props.onSearchHeroe}>
+            <div className='input-group ml-2'>
+              <span className='input-group-text' id='basic-addon1'>
+                <i className='fas fa-search'></i>
+              </span>
+                <input
+                  type='search'
+                  className='form-control'
+                  placeholder='Search character...'
+                  aria-label='Search'
+                  aria-describedby="basic-addon1"
+                  onChange={props.onHandlerChange}
+                  value={props.query}
+                />
+            </div>
+          </form>
         </div>
       </div>
     </nav>
