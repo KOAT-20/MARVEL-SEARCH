@@ -39,14 +39,13 @@ import React from 'react';
                 <img src={`${heroe.thumbnail.path}.${heroe.thumbnail.extension}`} className='img-fluid' />
                 <div className='mt-2 h3'>{heroe.comics.available} Comics</div>
                 <div className='mt-2'>
-                  {/* {heroe.comics.items.map((comic) => {
+                 {heroe.comics.items.map((comic) => {
                     return (
                       <ul className='list-group list-group-flush'>
                         <li className='list-group-item list-group-item-action'> {comic.name}</li>
                       </ul>
                     )
-                  })} */}
-                  {heroe.comics.items.name}
+                  })}
                 </div>
               </div>
               <div className="modal-footer">
