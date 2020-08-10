@@ -13,7 +13,7 @@ export default class App extends Component {
       loading: true,
       error: null,
       heroes: [],
-      query: ''
+      query: '',
     }
   }
 
