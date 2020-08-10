@@ -2,8 +2,8 @@ import React from 'react';
 import ItemsList from '../Items';
 
 const List = (props) => {
-  const heroesItems = props.characters.map((character) => {
-    return <ItemsList key={character.id} heroe={character} />
+  const heroesItems = props.heroes.map((heroe) => {
+    return <ItemsList key={heroe.id} heroe={heroe} />
   });
 
   return (
