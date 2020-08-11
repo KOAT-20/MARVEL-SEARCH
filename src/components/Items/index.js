@@ -19,34 +19,38 @@ import React from 'react';
        </div>
 
        <div
-          className="modal fade"
-          id="staticBackdrop"
-          data-backdrop="static"
-          data-keyboard="false"
-          tabIndex="-1"
-          aria-labelledby="staticBackdropLabel"
-          aria-hidden="true"
+          className='modal fade'
+          id='staticBackdrop'
+          data-backdrop='static'
+          data-keyboard='false'
+          tabIndex='-1'
+          aria-labelledby='staticBackdropLabel'
+          aria-hidden='true'
           >
-          <div className="modal-dialog modal-dialog-scrollable">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title" id="staticBackdropLabel">{heroe.name}</h5>
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
+          <div className='modal-dialog modal-lg modal-dialog-centered'>
+            <div className='modal-content'>
+              <div className='modal-header'>
+                <h5 className='modal-title' id='staticBackdropLabel'>{heroe.name}</h5>
+                <button type='button' className='close' data-dismiss='modal' aria-label='Close'>
+                  <span aria-hidden='true'>&times;</span>
                 </button>
               </div>
-              <div className="modal-body" key={heroe.id} >
-                <img src={`${heroe.thumbnail.path}.${heroe.thumbnail.extension}`} className='img-fluid' />
-                <div className='mt-2 h3'>{heroe.comics.available} Comics</div>
-                <div className='mt-2'>
-                 {heroe.comics.items.map((comic) => {
-                    return (
-                      <ul className='list-group list-group-flush'>
-                        <li className='list-group-item list-group-item-action'> {comic.name}</li>
-                      </ul>
-                    )
-                  })}
-                </div>
+              <div className='modal-body'>
+               {heroe.comics.items.map((comic) => {
+                  return (
+                    <ul className='list-group list-group-flush'>
+                      <div className='row mt-3'>
+                        <div className='col-lg-4'>
+                          <img src={`${heroe.thumbnail.path}.${heroe.thumbnail.extension}`} className='img-fluid' />
+                        </div>
+                        <div className='col'>
+                          <li className='list-group-item list-group-item-action'> {comic.name}</li>
+                          <div className='mt-2'>{heroe.description}</div>
+                        </div>
+                      </div>
+                    </ul>
+                  )
+                })}
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-danger" data-dismiss="modal">
