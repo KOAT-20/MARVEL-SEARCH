@@ -18,15 +18,12 @@ export default class App extends Component {
   }
 
   async componentDidMount () {
-    this.getCharactersMavel();
-  }
-
-  getCharactersMavel = async () => {
     this.setState({ loading: true, error: null });
     try {
       const res = await axios.get('https://gateway.marvel.com:443/v1/public/characters?apikey=1038b8d6ec7dbf27ec813944c8023739');
-      // console.log(res.data.data.results);
-      this.setState({ heroes: res.data.data.results });
+      const resHeroes = res.data.data.results;
+      console.log(resHeroes);
+      this.setState({ heroes: resHeroes });
     } catch (error) {
       this.setState({ loading: false, error: error });
     }
